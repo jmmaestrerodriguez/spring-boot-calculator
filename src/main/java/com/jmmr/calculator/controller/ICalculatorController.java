@@ -9,7 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController("/calculator")
+@RestController
+@RequestMapping("/calculator")
 public interface ICalculatorController {
     @ApiOperation(value = "Calculates the result of an operation.")
     @ApiResponses(value = {

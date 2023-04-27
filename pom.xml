@@ -55,7 +55,11 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>io.corp.calculator</groupId>
+			<artifactId>tracer</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 
 	</dependencies>
 
@@ -64,6 +68,26 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<executions>
+					<execution>
+						<id>install-jar</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>io.corp.calculator</groupId>
+							<artifactId>tracer</artifactId>
+							<version>1.0.0</version>
+							<file>${project.basedir}/lib/tracer-1.0.0.jar</file>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
