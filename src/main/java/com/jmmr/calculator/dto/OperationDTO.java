@@ -6,8 +6,8 @@ import com.jmmr.calculator.model.Operation;
 import com.jmmr.calculator.model.Subtraction;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
+
 
 @Getter
 @Setter
