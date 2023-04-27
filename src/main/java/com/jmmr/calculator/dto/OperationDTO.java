@@ -16,7 +16,6 @@ public class OperationDTO {
     private BigDecimal firstOperand;
     private BigDecimal secondOperand;
     private OperationType operationType;
-    private BigDecimal result;
 
     public Operation toOperation(){
         switch (operationType){

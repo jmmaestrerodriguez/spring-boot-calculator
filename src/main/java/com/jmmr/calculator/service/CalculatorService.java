@@ -9,11 +9,8 @@ import java.math.BigDecimal;
 @Service
 public class CalculatorService {
 
-    public OperationDTO performOperation(OperationDTO operationDTO) {
-        Operation operation = operationDTO.toOperation();
-        BigDecimal result = operation.calculate();
-        operationDTO.setResult(result);
-        return operationDTO;
+    public BigDecimal performOperation(Operation operation) {
+        return operation.calculate();
     }
 
 }
