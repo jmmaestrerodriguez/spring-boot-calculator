@@ -1,11 +1,13 @@
 package com.jmmr.calculator.log;
 
 import io.corp.calculator.TracerImpl;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Logger implements ILogger{
-    private TracerImpl tracer;
+@Lazy
+public class Logger implements ILogger {
+    private TracerImpl tracer = new TracerImpl();
 
     @Override
     public void log(String logMessage) {
@@ -13,14 +15,7 @@ public class Logger implements ILogger{
     }
 
     private TracerImpl getTracer() {
-        if (tracer == null) {
-            this.tracer = new TracerImpl();
-        }
         return this.tracer;
     }
-
-    public void Logger() {
-        this.tracer = new TracerImpl();
-    }
-
 }
+
