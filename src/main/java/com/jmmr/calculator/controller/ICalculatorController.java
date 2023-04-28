@@ -8,6 +8,8 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/calculator")
@@ -19,6 +21,6 @@ public interface ICalculatorController {
     })
     @PostMapping("/operation")
     ResponseEntity<OperationResultDTO> calculate(
-            @RequestBody OperationDTO operationDTO);
+            @Valid @RequestBody OperationDTO operationDTO);
 
 }
