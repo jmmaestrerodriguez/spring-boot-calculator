@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +69,19 @@ public class CalculatorExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(exception, response, new HttpHeaders(), response.getStatus(), request);
     }
 
+    @Override
+    public ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException exception, HttpHeaders headers, HttpStatus status, WebRequest request) {
+
+        String message = "Path '" + request.getDescription(false).substring(4) + "' does not exists.";
+
+        ExceptionResponse response = new ExceptionResponse(
+                HttpStatus.NOT_FOUND,
+                exception.getMessage(),
+                message);
+
+        return handleExceptionInternal(exception, response, new HttpHeaders(), response.getStatus(), request);
+    }
+
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<Object> handleAll(Exception exception, WebRequest request) {
         ExceptionResponse response = new ExceptionResponse(
@@ -76,5 +90,4 @@ public class CalculatorExceptionHandler extends ResponseEntityExceptionHandler {
                 "An unknown error has occurred");
         return handleExceptionInternal(exception, response, new HttpHeaders(), response.getStatus(), request);
     }
-
 }
