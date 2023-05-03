@@ -64,6 +64,8 @@
 		<dependency>
 			<groupId>io.corp.calculator</groupId>
 			<artifactId>tracer</artifactId>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/tracer-1.0.0.jar</systemPath>
 			<version>1.0.0</version>
 		</dependency>
 
