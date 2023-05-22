@@ -11,8 +11,6 @@ Proyecto basado en microservicios de Spring Boot, cuya funcionalidad es la de re
 ## Estructura
 La estructura del proyecto es la siguiente:
 ```text
-├───.mvn
-│   └───wrapper
 ├───lib
 ├───src
 │   ├───main
@@ -27,6 +25,7 @@ La estructura del proyecto es la siguiente:
 │   │   │               ├───enums
 │   │   │               ├───exception
 │   │   │               ├───log
+│   │   │               ├───mapper
 │   │   │               ├───model
 │   │   │               └───service
 │   │   └───resources
@@ -38,6 +37,7 @@ La estructura del proyecto es la siguiente:
 │               └───jmmr
 │                   └───calculator
 │                       ├───controller
+│                       ├───exception
 │                       └───service
 ```
 * config: Clases de configuración habituales (Swagger, ...) 
@@ -46,6 +46,7 @@ La estructura del proyecto es la siguiente:
 * enums: Tipos enumerados para valores determinados.
 * exception: Gestión de excepciones
 * log: Implementación de un logger (usando la librería Tracer)
+* mapper: Mapeadores de modelos a DTOs
 * model: Modelo de dominio (no persistido en este caso)
 * service: Capa de servicios
 
